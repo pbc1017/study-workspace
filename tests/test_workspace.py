@@ -298,6 +298,27 @@ class HTTPTests(unittest.TestCase):
         ) as response:
             self.assertEqual(json.load(response)["questions"], 3)
 
+    def test_two_local_runtimes_keep_independent_browser_sessions(self):
+        from http.cookiejar import CookieJar
+
+        other = Server(self.temp.name, 0)
+        thread = threading.Thread(target=other.serve_forever, daemon=True)
+        thread.start()
+        browser = urllib.request.build_opener(
+            urllib.request.HTTPCookieProcessor(CookieJar())
+        )
+        try:
+            for server in (self.server, other):
+                with browser.open(server.origin + "/") as response:
+                    self.assertEqual(response.status, 200)
+            for server in (self.server, other):
+                with browser.open(server.origin + "/api/projects") as response:
+                    self.assertEqual(json.load(response), [])
+        finally:
+            other.shutdown()
+            other.server_close()
+            thread.join()
+
 
 if __name__ == "__main__":
     unittest.main()

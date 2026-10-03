@@ -23,6 +23,8 @@ class Server(ThreadingHTTPServer):
         self.token = secrets.token_urlsafe(32)
         super().__init__(("127.0.0.1", port), Handler)
         self.origin = f"http://127.0.0.1:{self.server_port}"
+        # Cookies are host-scoped, not port-scoped. Separate concurrent data homes.
+        self.cookie_name = f"study_session_{self.server_port}"
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -50,7 +52,7 @@ class Handler(BaseHTTPRequestHandler):
         if cookie:
             self.send_header(
                 "Set-Cookie",
-                f"study_session={self.server.token}; HttpOnly; SameSite=Strict; Path=/",
+                f"{self.server.cookie_name}={self.server.token}; HttpOnly; SameSite=Strict; Path=/",
             )
         self.end_headers()
         self.wfile.write(raw)
@@ -93,7 +95,11 @@ class Handler(BaseHTTPRequestHandler):
                 )
             cookie = SimpleCookie()
             cookie.load(self.headers.get("Cookie", ""))
-            token = cookie["study_session"].value if "study_session" in cookie else ""
+            token = (
+                cookie[self.server.cookie_name].value
+                if self.server.cookie_name in cookie
+                else ""
+            )
             bearer = self.headers.get("Authorization", "").removeprefix("Bearer ")
             require(
                 secrets.compare_digest(token, self.server.token)

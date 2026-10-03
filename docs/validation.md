@@ -2,9 +2,10 @@
 
 ## Automated
 
-- 18 Python tests passed locally on Python 3.14 / macOS.
+- 19 Python tests passed locally on Python 3.14 / macOS.
 - Coverage includes project isolation, atomic/idempotent imports, session snapshots after content edits, answer conflicts from two connections, four question types, essay self-assessment, exact AWS exam counts/scoring, persisted expiry, review intervals, source deduplication, backup restore, synthetic legacy migration, and HTTP authentication/origin checks.
 - `node --check web/app.js` passed.
+- Concurrent local runtimes use port-specific session cookies, verified with a shared browser cookie jar.
 - Portable package validation passed: root and Claude manifests, two marketplaces, five skills, three example packs.
 - All five skills passed the skill-creator frontmatter validator.
 - Claude Code 2.1.114 `plugin validate` passed for the plugin and marketplace without warnings.
