@@ -48,6 +48,10 @@ class WorkspaceTests(unittest.TestCase):
         self.assertEqual(
             self.store.topics(self.project)[0]["title"], self.pack["topics"][0]["title"]
         )
+        bad = copy.deepcopy(self.pack)
+        bad["topics"][0]["sourceRefs"] = "not an array"
+        with self.assertRaises(Error):
+            self.store.import_pack(self.project, bad)
 
     def test_project_isolation(self):
         other = self.store.create_project("Math")["id"]
@@ -293,10 +297,24 @@ class HTTPTests(unittest.TestCase):
         ) as response:
             p = json.load(response)
         pack = json.loads((ROOT / "examples/linear-algebra.json").read_text())
+        pack["questions"][0]["id"] = "선형/문제 1"
         with self.request(
             f'/api/projects/{p["id"]}/imports', headers, {"pack": pack}
         ) as response:
             self.assertEqual(json.load(response)["questions"], 3)
+        from urllib.parse import quote
+
+        question_id = quote(pack["questions"][0]["id"], safe="")
+        request = urllib.request.Request(
+            self.server.origin + f'/api/projects/{p["id"]}/marks/{question_id}',
+            method="PUT",
+            headers=headers,
+            data=json.dumps(
+                {"tags": ["confused"], "memo": "Keep Unicode IDs"}
+            ).encode(),
+        )
+        with urllib.request.urlopen(request) as response:
+            self.assertTrue(json.load(response)["saved"])
 
     def test_two_local_runtimes_keep_independent_browser_sessions(self):
         from http.cookiejar import CookieJar

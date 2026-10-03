@@ -7,7 +7,7 @@ import mimetypes
 import os
 from pathlib import Path
 import secrets
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 from . import __version__
 from .store import Store, Error, require
@@ -126,7 +126,7 @@ class Handler(BaseHTTPRequestHandler):
                     200, {"version": __version__, "application": "study-workspace"}
                 )
             store = Store(self.server.home)
-            parts = path.strip("/").split("/")
+            parts = [unquote(part) for part in path.strip("/").split("/")]
             query = parse_qs(parsed.query)
             method = self.command
             result = None

@@ -198,6 +198,11 @@ class Store:
                 and all(isinstance(x, str) for x in t.get("objectives", [])),
                 "Invalid objectives",
             )
+            require(
+                isinstance(t.get("sourceRefs", []), list)
+                and all(isinstance(x, str) for x in t.get("sourceRefs", [])),
+                "Invalid topic sourceRefs",
+            )
         qids = set()
         for q in questions:
             require(isinstance(q, dict), "Invalid question")
