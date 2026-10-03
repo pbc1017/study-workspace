@@ -1,0 +1,20 @@
+{
+  "name": "pbc1017-study",
+  "interface": {
+    "displayName": "Study Workspace"
+  },
+  "plugins": [
+    {
+      "name": "study-workspace",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

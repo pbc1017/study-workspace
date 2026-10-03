@@ -1,0 +1,10 @@
+{
+  "name": "study-workspace",
+  "version": "0.1.0",
+  "description": "Project-based learning methodology, local study GUI, and SQLite records for Codex and Claude Code.",
+  "author": {
+    "name": "pbc1017"
+  },
+  "repository": "https://github.com/pbc1017/study-workspace",
+  "license": "MIT"
+}

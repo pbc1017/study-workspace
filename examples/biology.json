@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "title": "생명과학 · 세포와 에너지",
+    "profile": "school",
+    "description": "세포 소기관의 역할을 설명하고, 광합성과 세포 호흡의 관계를 이해합니다."
+  },
+  "topics": [
+    {
+      "id": "cell",
+      "title": "세포 소기관과 에너지",
+      "objectives": [
+        "미토콘드리아와 엽록체의 역할을 구분한다.",
+        "광합성과 세포 호흡의 관계를 자신의 말로 설명한다."
+      ],
+      "body": "## 먼저 떠올려 보기\n식물도 세포 호흡을 할까요?\n\n## 핵심 개념\n미토콘드리아는 진핵세포의 세포 호흡에서 주요 역할을 합니다. 엽록체는 광합성을 수행합니다.\n\n식물은 광합성으로 유기물을 만들고, 세포 호흡으로 유기물에 저장된 에너지를 ATP 생산에 사용합니다. 광합성을 하는 식물도 살아 있는 세포의 활동을 위해 세포 호흡을 합니다.\n\n## 비교하며 설명하기\n- 광합성: 빛에너지를 이용한 유기물 합성\n- 세포 호흡: 유기물 분해와 ATP 생산\n\n자료를 덮고 두 과정의 관계를 설명해 보세요.",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "bio-1",
+      "type": "single",
+      "prompt": "진핵세포에서 호기성 세포 호흡의 주요 단계가 진행되는 소기관은?",
+      "options": [
+        {
+          "label": "A",
+          "text": "미토콘드리아"
+        },
+        {
+          "label": "B",
+          "text": "골지체"
+        },
+        {
+          "label": "C",
+          "text": "리소좀"
+        }
+      ],
+      "answer": [
+        "A"
+      ],
+      "explanation": "미토콘드리아에서 시트르산 회로와 산화적 인산화가 진행됩니다. 해당과정은 세포질에서 일어납니다.",
+      "number": "1",
+      "topics": [
+        "cell"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    },
+    {
+      "id": "bio-2",
+      "type": "multiple",
+      "prompt": "식물 세포에 대한 설명 중 옳은 것을 모두 고르세요.",
+      "options": [
+        {
+          "label": "A",
+          "text": "광합성을 하는 식물도 세포 호흡을 한다."
+        },
+        {
+          "label": "B",
+          "text": "엽록체는 광합성에 관여한다."
+        },
+        {
+          "label": "C",
+          "text": "식물은 밤에만 세포 호흡을 한다."
+        }
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "explanation": "식물은 빛이 있는 동안에도 세포 호흡을 합니다.",
+      "number": "2",
+      "topics": [
+        "cell"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    },
+    {
+      "id": "bio-3",
+      "type": "short",
+      "prompt": "세포에서 에너지를 전달하는 대표적인 분자의 약어 세 글자를 쓰세요.",
+      "answer": [
+        "ATP"
+      ],
+      "explanation": "ATP는 아데노신 삼인산입니다.",
+      "number": "3",
+      "topics": [
+        "cell"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    },
+    {
+      "id": "bio-4",
+      "type": "essay",
+      "prompt": "“식물은 광합성을 하므로 세포 호흡이 필요 없다”는 주장에 반박해 보세요.",
+      "points": 2,
+      "rubric": "1점: 광합성이 유기물을 합성하는 과정임을 설명한다.\n1점: 식물도 유기물의 에너지를 이용해 세포 활동에 필요한 ATP를 생산해야 함을 설명한다.",
+      "explanation": "광합성과 세포 호흡은 역할이 다릅니다. 광합성을 하는 식물도 ATP를 얻기 위해 세포 호흡을 합니다.",
+      "number": "4",
+      "topics": [
+        "cell"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    }
+  ]
+}

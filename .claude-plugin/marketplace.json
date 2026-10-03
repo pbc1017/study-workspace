@@ -1,0 +1,16 @@
+{
+  "name": "pbc1017-study",
+  "owner": {
+    "name": "pbc1017"
+  },
+  "plugins": [
+    {
+      "name": "study-workspace",
+      "source": "./",
+      "description": "Project-based learning methodology, local study GUI, and SQLite records for Codex and Claude Code."
+    }
+  ],
+  "metadata": {
+    "description": "Local project-based learning for Codex and Claude Code"
+  }
+}

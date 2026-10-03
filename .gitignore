@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+*.db
+*.db-*
+*.sqlite*
+.env*
+data/
+private/
+artifacts/
+runtime.json
+*.log

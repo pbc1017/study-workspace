@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "title": "선형대수 · 독립성과 기저",
+    "profile": "university",
+    "description": "정의와 반례를 통해 선형독립, 생성 공간, 기저를 연결합니다."
+  },
+  "topics": [
+    {
+      "id": "basis",
+      "title": "선형독립과 기저",
+      "objectives": [
+        "선형독립의 정의를 설명한다.",
+        "벡터 집합이 기저인지 판단한다."
+      ],
+      "body": "## 정의\n벡터 v₁, …, vₙ의 선형결합 c₁v₁ + … + cₙvₙ = 0을 만족하는 계수가 모두 0인 경우에만 가능하면 선형독립입니다.\n\n기저는 공간을 생성하면서 선형독립인 벡터 집합입니다.\n\n## 예제\nℝ²의 벡터 (1, 0), (0, 1)은 선형독립이며 ℝ²를 생성하므로 기저입니다.\n\n## 반례\n(1, 0), (2, 0)은 한 벡터가 다른 벡터의 배수이므로 선형종속입니다.\n\n왜 영벡터를 포함한 집합은 선형독립일 수 없는지 설명해 보세요."
+    }
+  ],
+  "questions": [
+    {
+      "id": "la-1",
+      "type": "single",
+      "prompt": "ℝ²에서 기저를 이루는 벡터 집합은?",
+      "options": [
+        {
+          "label": "A",
+          "text": "{(1,0), (2,0)}"
+        },
+        {
+          "label": "B",
+          "text": "{(1,0), (0,1)}"
+        },
+        {
+          "label": "C",
+          "text": "{(0,0), (1,1)}"
+        }
+      ],
+      "answer": [
+        "B"
+      ],
+      "explanation": "B는 선형독립인 두 벡터로 ℝ²를 생성합니다.",
+      "number": "1",
+      "topics": [
+        "basis"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    },
+    {
+      "id": "la-2",
+      "type": "short",
+      "prompt": "ℝ³의 기저를 구성하는 벡터의 개수는? 숫자로 답하세요.",
+      "answer": [
+        "3",
+        "３"
+      ],
+      "explanation": "ℝ³의 차원은 3이므로 모든 기저는 3개의 벡터를 포함합니다.",
+      "number": "2",
+      "topics": [
+        "basis"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    },
+    {
+      "id": "la-3",
+      "type": "essay",
+      "prompt": "영벡터를 포함한 벡터 집합이 선형종속임을 정의를 이용해 설명하세요.",
+      "points": 2,
+      "rubric": "1점: 영벡터의 계수를 1, 나머지 벡터의 계수를 0으로 선택한다.\n1점: 모든 계수가 0이 아닌데 선형결합이 영벡터이므로 선형종속임을 결론낸다.",
+      "explanation": "영벡터에 1을 곱한 항과 다른 벡터의 0배를 더하면 영벡터입니다. 비자명한 해가 존재합니다.",
+      "number": "3",
+      "topics": [
+        "basis"
+      ],
+      "origin": "generated",
+      "sourceRefs": [
+        "Original teaching example authored for Study Workspace"
+      ]
+    }
+  ]
+}
